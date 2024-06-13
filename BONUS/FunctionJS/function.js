@@ -1,7 +1,7 @@
 //Definiamo la Funzione per generare le celle a seconda della difficoltà
 
-function generateCells(gridContainer, difficultyLevel) {
-    let rows, columns;
+function generateGamegrid( difficultyLevel) {
+    let rows, columns,totalCells;
 
     // Determina il numero di righe e colonne in base al livello di difficoltà con una condizione
 
@@ -9,26 +9,68 @@ function generateCells(gridContainer, difficultyLevel) {
         if (difficultyLevel === 1) {
             rows = 10;
             columns = 10;
+            totalCells = 100;
     // - oppure con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
         } else if (difficultyLevel === 2) {
             rows = 9;
             columns = 9;
+            totalCells = 81;
     // - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
         } else if (difficultyLevel === 3) {
-            rows = 10;
-            columns = 10;
+            rows = 7;
+            columns = 7;
+            totalCells = 49;
     //  ritorna
         } else {
             return; 
         }
 
     // Generiamo la griglia utilizzando il numero di righe e colonne determinate
-    generateGrid(gridContainer, rows, columns);
+    generateGrid( rows, columns,totalCells,difficultyLevel);
+}
+
+// definiamo la Funzione per generare la griglia con il numero specificato di righe e colonne
+function generateGrid(rows, columns, totalCells,difficultyLevel)  {
+    // riferimento constante locale per richiamare il container della griglia
+    const gridContainer = document.getElementById('grid-container');
+
+
+    // refresh griglia
+    gridContainer.innerHTML = ''; 
+
+
+      // Aggiungi l'attributo data-difficulty al grid-container
+      gridContainer.setAttribute('data-difficulty', difficultyLevel);
+
+    // ora definiamo un ciclo for per generare le colonne e righe gia determinate in precedenza 
+
+    for (let i = 1; i <= totalCells; i++) {
+         // creazione elemento div per le celle
+        const cell = document.createElement('div');
+        // aggiungiamo la classe cella ad ogni singolo elemento creato in questo caso i div
+        cell.classList.add('cell');
+
+        // Aggiungi un event listener per il clic sulla cella
+        cell.addEventListener('click',
+             function() {
+            //  aggiungiamo il toggle al clicked per le celle in modo tale da poterle ri cliccare e deselezionare nuovamente il colore
+            cell.classList.toggle('clicked');
+            // verifica console cella cliccata
+            console.log('Numero Cella cliccata:', i);
+            }
+        );
+            // stampiamo appendendo alle celle all'interno del grid container
+            gridContainer.append(cell);
+        }
+        gridContainer.classList.remove('hidden');
+
 }
 
 
 
 
+
+                    // FUNZIONE PER GENERARE UNA GRIGLIA GENERICA CON CELLE
 // function generateCells(gridContainer, difficultyLevel) {
 //     // creazione ciclo per la creazione delle 100 celle 
 //     for (let i = 1; i <= 100; i++) {

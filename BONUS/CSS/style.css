@@ -12,7 +12,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
     background-color: #011627;
     
@@ -42,8 +41,7 @@ header h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 600px;
-    height: 600px;
+    width: 60%;
     margin-bottom: 20px;
    
     
@@ -68,7 +66,6 @@ header h1 {
 #grid-container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     margin-top: 20px;
    
 }
@@ -84,12 +81,32 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% / 10); 
-    height: 50px;
+    
     /* debug */
     border: 2px solid #fff;
     background-color: #011627;
     cursor: pointer;
+}
+
+.grid-container[data-difficulty="1"], .cell {
+    /* Stili per la difficoltà 1 */
+    width: calc(100% / 10);
+    width: 70px;
+    height: 50px;
+}
+
+.grid-container[data-difficulty="2"] .cell {
+    /* Stili per la difficoltà 2 */
+    width: calc(100% / 9) -20px;
+    width: 70px;
+    height: 50px;
+}
+
+.grid-container[data-difficulty="3"] .cell {
+    /* Stili per la difficoltà 3 */
+    width: calc(100% / 7);
+    width: 70px;
+    height: 50px;
 }
 /*  style delle celle al momento del'event click */
 .cell.clicked {

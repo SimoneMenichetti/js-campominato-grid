@@ -16,7 +16,7 @@ playButton.addEventListener('click',
         // Mostra la griglia rimuovendo la classe hidden al play del button
         gridContainer.classList.remove('hidden'); 
 
-        // Pulisci la griglia se è già stata generata
+        // refresh per  la griglia se  già è stata generata cliccando play 
         gridContainer.innerHTML = '';
 
         // Chiama la funzione per generare le celle

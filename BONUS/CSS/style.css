@@ -55,6 +55,16 @@ header h1 {
     cursor: pointer;
 }
 
+/* regole generali select difficoltà */
+.difficulty{
+    margin-left: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    
+}
+
+/* regole container griglia */
+
 #grid-container {
     display: flex;
     flex-wrap: wrap;

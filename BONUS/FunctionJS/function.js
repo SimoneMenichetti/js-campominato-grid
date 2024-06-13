@@ -1,27 +1,56 @@
-// Funzione per generare le celle
+//Definiamo la Funzione per generare le celle a seconda della difficoltà
 
-function generateCells(gridContainer) {
-    // creazione ciclo per la creazione delle 100 celle 
-    for (let i = 0; i < 100; i++) {
-        // creazione elemento div per le celle
-        const cell = document.createElement('div');
-        // aggiungiamo la classe cella ad ogni singolo elemento creato in questo caso i div
-        cell.classList.add('cell');
+function generateCells(gridContainer, difficultyLevel) {
+    let rows, columns;
+
+    // Determina il numero di righe e colonne in base al livello di difficoltà con una condizione
+
+    // -se con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
+        if (difficultyLevel === 1) {
+            rows = 10;
+            columns = 10;
+    // - oppure con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
+        } else if (difficultyLevel === 2) {
+            rows = 9;
+            columns = 9;
+    // - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+        } else if (difficultyLevel === 3) {
+            rows = 10;
+            columns = 10;
+    //  ritorna
+        } else {
+            return; 
+        }
+
+    // Generiamo la griglia utilizzando il numero di righe e colonne determinate
+    generateGrid(gridContainer, rows, columns);
+}
+
+
+
+
+// function generateCells(gridContainer, difficultyLevel) {
+//     // creazione ciclo per la creazione delle 100 celle 
+//     for (let i = 1; i <= 100; i++) {
+//         // creazione elemento div per le celle
+//         const cell = document.createElement('div');
+//         // aggiungiamo la classe cella ad ogni singolo elemento creato in questo caso i div
+//         cell.classList.add('cell');
        
 
-        // creazione funzione per generare l evento al click delle celle 
-        cell.addEventListener('click', 
-            function() {
-                //  aggiungiamo il toggle al clicked per le celle in modo tale da poterle ri cliccare e deselezionare nuovamente il colore
-                cell.classList.toggle('clicked');
-                // verifica in console della cella cliccata
-                console.log('Numero cella cliccata:', i);
-            }
-        );
-                // stampiamo appendendo alle celle all'interno del grid container
-                gridContainer.append(cell);
-    }
-}
+//         // creazione funzione per generare l evento al click delle celle 
+//         cell.addEventListener('click', 
+//             function() {
+//                 //  aggiungiamo il toggle al clicked per le celle in modo tale da poterle ri cliccare e deselezionare nuovamente il colore
+//                 cell.classList.toggle('clicked');
+//                 // verifica in console della cella cliccata
+//                 console.log('Numero cella cliccata:', i);
+//             }
+//         );
+//                 // stampiamo appendendo alle celle all'interno del grid container
+//                 gridContainer.append(cell);
+//     }
+// }
 
 
 

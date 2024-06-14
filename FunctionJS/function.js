@@ -2,11 +2,13 @@
 
 function generateCells(gridContainer) {
     // creazione ciclo per la creazione delle 100 celle 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 1; i <= 100; i++) {
         // creazione elemento div per le celle
         const cell = document.createElement('div');
         // aggiungiamo la classe cella ad ogni singolo elemento creato in questo caso i div
         cell.classList.add('cell');
+
+        cell.textContent =  i;
        
 
         // creazione funzione per generare l evento al click delle celle 

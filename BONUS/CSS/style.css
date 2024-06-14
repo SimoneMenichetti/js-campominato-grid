@@ -66,8 +66,11 @@ header h1 {
 #grid-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    height: 500px;
     margin-top: 20px;
-   
+    
 }
 
 /* classe hidden per la visualizzazione della griglia dopo il click sul bottone */
@@ -86,28 +89,10 @@ header h1 {
     border: 2px solid #fff;
     background-color: #011627;
     cursor: pointer;
+    color: white;
 }
 
-.grid-container[data-difficulty="1"], .cell {
-    /* Stili per la difficoltà 1 */
-    width: calc(100% / 10);
-    width: 70px;
-    height: 50px;
-}
 
-.grid-container[data-difficulty="2"] .cell {
-    /* Stili per la difficoltà 2 */
-    width: calc(100% / 9) -20px;
-    width: 70px;
-    height: 50px;
-}
-
-.grid-container[data-difficulty="3"] .cell {
-    /* Stili per la difficoltà 3 */
-    width: calc(100% / 7);
-    width: 70px;
-    height: 50px;
-}
 /*  style delle celle al momento del'event click */
 .cell.clicked {
     background-color: #7FFFD4;

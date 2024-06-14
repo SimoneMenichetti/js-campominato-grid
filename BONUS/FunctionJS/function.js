@@ -1,35 +1,35 @@
 
 
-//Definiamo la Funzione per generare le celle a seconda della difficoltà
+    //Definiamo la Funzione per generare le celle a seconda della difficoltà
 
-function generateGamegrid( difficultyLevel) {
-    let rows, columns,totalCells;
+    function generateGamegrid(difficultyLevel) {
+        let rows, columns,totalCells;
 
-    // Determina il numero di righe e colonne in base al livello di difficoltà con una condizione
+        // Determina il numero di righe e colonne in base al livello di difficoltà con una condizione
 
-    // -se con difficoltà 1 = 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
-        if (difficultyLevel === 1) {
-            rows = 10;
-            columns = 10;
-            totalCells = 100;
-    // - oppure con difficoltà 2 = 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
-        } else if (difficultyLevel === 2) {
-            rows = 9;
-            columns = 9;
-            totalCells = 81;
-    // - con difficoltà 3 = 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
-        } else if (difficultyLevel === 3) {
-            rows = 7;
-            columns = 7;
-            totalCells = 49;
-    //  ritorna
-        } else {
-            return; 
-        }
+        // -se con difficoltà 1 = 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
+            if (difficultyLevel === 1) {
+                rows = 10;
+                columns = 10;
+                totalCells = 100;
+        // - oppure con difficoltà 2 = 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
+            } else if (difficultyLevel === 2) {
+                rows = 9;
+                columns = 9;
+                totalCells = 81;
+        // - con difficoltà 3 = 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+            } else if (difficultyLevel === 3) {
+                rows = 7;
+                columns = 7;
+                totalCells = 49;
+        //  ritorna
+            } else {
+                return; 
+            }
 
-    // Generiamo la griglia utilizzando il numero di righe e colonne determinate
-    generateGrid( rows, columns,totalCells,difficultyLevel);
-}
+        // Generiamo la griglia utilizzando il numero di righe e colonne determinate
+        generateGrid( rows, columns,totalCells,difficultyLevel);
+    }
 
     // definiamo la Funzione per generare la griglia con il numero specificato di righe e colonne
     function generateGrid(rows, columns, totalCells,difficultyLevel)  {
@@ -39,11 +39,6 @@ function generateGamegrid( difficultyLevel) {
 
         // refresh griglia
         gridContainer.innerHTML = ''; 
-
-
-        
-    // Aggiungi l'attributo data-difficulty al grid-container
-    gridContainer.setAttribute('data-difficulty', difficultyLevel);
 
         // Calcola le dimensioni delle celle in base al numero di colonne per riga
         const cellWidth = `calc(100% / ${ columns})`;
@@ -63,18 +58,19 @@ function generateGamegrid( difficultyLevel) {
             cell.style.height = cellHeight;
 
             // Aggiungi un event listener per il clic sulla cella
+
             cell.addEventListener('click',
                 function() {
-                //  aggiungiamo il toggle al clicked per le celle in modo tale da poterle ri cliccare e deselezionare nuovamente il colore
-                cell.classList.toggle('clicked');
-                // verifica console cella cliccata
-                console.log('Numero Cella cliccata:', i);
+                    //  aggiungiamo il toggle al clicked per le celle in modo tale da poterle ri cliccare e deselezionare nuovamente il colore
+                    cell.classList.toggle('clicked');
+                    // verifica console cella cliccata
+                    console.log('Numero Cella cliccata:', i);
                 }
             );
-                // stampiamo appendendo alle celle all'interno del grid container
-                gridContainer.append(cell);
-            }
-            gridContainer.classList.remove('hidden');
+                    // stampiamo appendendo alle celle all'interno del grid container
+                    gridContainer.append(cell);
+        }
+                    gridContainer.classList.remove('hidden');
 
     }
 
